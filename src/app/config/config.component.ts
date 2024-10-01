@@ -18,15 +18,11 @@ export class ConfigComponent {
   @HostBinding("class") hostClass = "section"
 
   formGroup: FormGroup<{ [p: string]: FormControl }>
-  protected readonly Object = Object
+
+  readonly Object = Object
 
   constructor(protected websiteService: WebsiteService) {
     this.formGroup = this.initForm(websiteService.configuration)
-  }
-
-  save() {
-    this.websiteService.configuration = this.formGroup.value as Config
-    console.log(this.websiteService.configuration)
   }
 
   protected initForm(config: Config) {
@@ -36,5 +32,10 @@ export class ConfigComponent {
       group[key] = new FormControl(str)
     })
     return new FormGroup(group)
+  }
+
+  save() {
+    this.websiteService.configuration = this.formGroup.value as Config
+    console.log(this.websiteService.configuration)
   }
 }

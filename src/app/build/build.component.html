@@ -1,18 +1,10 @@
 <h2>Build</h2>
 <div class="form-container">
-  <form #buildForm (ngSubmit)="onSubmit(buildForm)">
-    <label><span class="cell">Output directory</span> <span class="cell"><input class="code" type="text"
-      name="out-dir"
-      [(ngModel)]="outDir" placeholder="output dir"></span> </label>
-    <label><span class="cell">Time format</span> <span class="cell"><input class="code" type="text"
-      name="time-format"
-      [(ngModel)]="timeFormat" placeholder="time format"></span> </label>
-    <label><span class="cell">Language</span> <span class="cell"><input class="code" type="text"
-      name="lang"
-      [(ngModel)]="lang" placeholder="fr|en|it|es|..."></span> </label> <label><span class="cell">Maps API key</span>
-    <span class="cell"><input [(ngModel)]="mapsApiKey" class="code"
-      name="maps-api-key"
-      placeholder="xxx..." type="text"></span> </label>
+  <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+    @for (entry of Object.entries(params); track entry[0]) {
+      <label><span class="cell">{{ entry[0] }}</span> <span class="cell"><input class="code" type="text"
+        [name]="entry[0]" [formControlName]="entry[0]" [value]="entry[1]"></span> </label>
+    }
     <input type="submit" value="Build">
   </form>
 </div>

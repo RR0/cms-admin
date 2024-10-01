@@ -2,7 +2,10 @@ import { Injectable } from "@angular/core"
 import { Config } from "../config/config"
 
 export interface BuildParams {
+  outDir: string
+  lang: string
   timeFormat: Intl.DateTimeFormatOptions
+  mapsApiKey: string
 }
 
 @Injectable({
@@ -48,6 +51,6 @@ export class WebsiteService {
   }
 
   build(params: BuildParams) {
-    console.log(params)
+    console.log("Building with params", params, "and configuration", this.configuration)
   }
 }
