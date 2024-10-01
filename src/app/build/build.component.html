@@ -9,7 +9,10 @@
       [(ngModel)]="timeFormat" placeholder="time format"></span> </label>
     <label><span class="cell">Language</span> <span class="cell"><input class="code" type="text"
       name="lang"
-      [(ngModel)]="lang" placeholder="fr|en|it|es|..."></span> </label>
+      [(ngModel)]="lang" placeholder="fr|en|it|es|..."></span> </label> <label><span class="cell">Maps API key</span>
+    <span class="cell"><input [(ngModel)]="mapsApiKey" class="code"
+      name="maps-api-key"
+      placeholder="xxx..." type="text"></span> </label>
     <input type="submit" value="Build">
   </form>
 </div>

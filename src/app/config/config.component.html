@@ -1,16 +1,9 @@
 <h2>Configuration</h2>
-<div class="form-container">
-  <form #configForm (ngSubmit)="onSubmit(configForm)">
-    <label><span class="cell">Content roots</span> <span class="cell"><input class="code" type="text"
-      name="contents to parse"
-      [(ngModel)]="contentRoots" placeholder="contents"></span> </label> <label> <span class="cell">Copies</span> <span
-    class="cell"><input class="code" type="text" name="files to copy" [(ngModel)]="copies"
-    placeholder="contents"></span></label>
-    <label><span class="cell">Mail</span> <span class="cell"><input class="code" type="text"
-      name="mail"
-      [(ngModel)]="mail" placeholder="name@example.com"></span> </label>
-    <label><span class="cell">Website base URL</span> <span class="cell"><input class="code" type="text"
-      name="base-url"
-      [(ngModel)]="baseUrl" placeholder="https://my.website.com/"></span> </label>
+<div (focusout)="save()" class="form-container">
+  <form [formGroup]="formGroup">
+    @for (entry of Object.entries(websiteService.configuration); track entry[0]) {
+      <label><span class="cell">{{ entry[0] }}</span> <span class="cell"><input class="code" type="text"
+        [name]="entry[0]" [formControlName]="entry[0]" [value]="entry[1]"></span> </label>
+    }
   </form>
 </div>

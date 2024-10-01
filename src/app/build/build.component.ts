@@ -1,5 +1,6 @@
 import { Component, HostBinding } from "@angular/core"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms"
+import { BuildParams, WebsiteService } from "../website/website.service"
 
 @Component({
   selector: "app-build",
@@ -23,8 +24,15 @@ export class BuildComponent {
     hour: "2-digit",
     minute: "2-digit"
   })
+  mapsApiKey = ""
+
+  constructor(protected service: WebsiteService) {
+  }
 
   onSubmit(buildForm: HTMLFormElement) {
-    const timeFormat = JSON.parse(this.timeFormat)
+    const params: BuildParams = {
+      timeFormat: JSON.parse(this.timeFormat)
+    }
+    this.service.build(params)
   }
 }
