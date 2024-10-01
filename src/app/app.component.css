@@ -1,0 +1,12 @@
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5em;
+  background-color: aliceblue;
+  li {
+    display: inline-block;
+  }
+  li + li::before {
+    content: " | ";
+  }
+}

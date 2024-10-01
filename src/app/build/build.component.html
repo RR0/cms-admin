@@ -1,0 +1,15 @@
+<h2>Build</h2>
+<div class="form-container">
+  <form #buildForm (ngSubmit)="onSubmit(buildForm)">
+    <label><span class="cell">Output directory</span> <span class="cell"><input class="code" type="text"
+      name="out-dir"
+      [(ngModel)]="outDir" placeholder="output dir"></span> </label>
+    <label><span class="cell">Time format</span> <span class="cell"><input class="code" type="text"
+      name="time-format"
+      [(ngModel)]="timeFormat" placeholder="time format"></span> </label>
+    <label><span class="cell">Language</span> <span class="cell"><input class="code" type="text"
+      name="lang"
+      [(ngModel)]="lang" placeholder="fr|en|it|es|..."></span> </label>
+    <input type="submit" value="Build">
+  </form>
+</div>

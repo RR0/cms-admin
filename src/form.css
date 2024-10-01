@@ -1,0 +1,46 @@
+.form-container {
+  container-type: inline-size;
+}
+
+.cell {
+  padding: 0.5em 0;
+
+  &:first-of-type {
+    white-space: nowrap;
+    text-align: right;
+  }
+}
+
+form {
+  display: block;
+  width: 100%;
+
+  input {
+    width: 100%;
+  }
+
+  label {
+    display: inline-block;
+    margin: 0.5em 0;
+  }
+}
+
+@container (width > 15em) {
+  form {
+    margin: 0;
+    display: table;
+
+    label {
+      display: table-row;
+
+      .cell {
+        display: table-cell;
+
+        &:first-of-type {
+          width: 1%;
+          padding-right: 0.5em;
+        }
+      }
+    }
+  }
+}

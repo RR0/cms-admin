@@ -1,0 +1,2 @@
+## GET build
+GET localhost:4000/api/data/
