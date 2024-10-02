@@ -1,7 +1,7 @@
 <h2>Configuration</h2>
 <div (focusout)="save()" class="form-container">
   <form [formGroup]="formGroup">
-    @for (entry of Object.entries(websiteService.configuration); track entry[0]) {
+    @for (entry of Object.entries(websiteService.config); track entry[0]) {
       <label><span class="cell">{{ entry[0] }}</span> <span class="cell"><input class="code" type="text"
         [name]="entry[0]" [formControlName]="entry[0]" [value]="entry[1]"></span> </label>
     }

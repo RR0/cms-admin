@@ -22,7 +22,7 @@ export class ConfigComponent {
   readonly Object = Object
 
   constructor(protected websiteService: WebsiteService) {
-    this.formGroup = this.initForm(websiteService.configuration)
+    this.formGroup = this.initForm(websiteService.config)
   }
 
   protected initForm(config: Config) {
@@ -35,7 +35,7 @@ export class ConfigComponent {
   }
 
   save() {
-    this.websiteService.configuration = this.formGroup.value as Config
-    console.log(this.websiteService.configuration)
+    this.websiteService.config = this.formGroup.value as Config
+    console.log(this.websiteService.config)
   }
 }
